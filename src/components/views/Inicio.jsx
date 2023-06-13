@@ -4,8 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import CardReceta from "./receta/CardReceta";
 const Inicio = () => {
   return (
-    <section className="mainSection">
-      <Container>
+    <section className="mainSection">   
       <Carousel>
         <Carousel.Item>
           <img
@@ -36,9 +35,8 @@ const Inicio = () => {
           />
         </Carousel.Item>
       </Carousel>
-      </Container>
       <Container>
-        <h1 className="display-4">Nuestras recetas</h1>
+        <h1 className="display-4 text-center mt-5">Nuestras recetas</h1>
         <hr />
         <Row>
           <CardReceta></CardReceta>
