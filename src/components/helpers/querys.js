@@ -8,11 +8,12 @@ export const login = async (usuario) =>
     {
         const respuesta = await fetch(URL_usuario);
         const listaUsuarios = await respuesta.json();
-        const usuarioBuscado = listaUsuarios.find((itemUsuario) => itemUsuario.email === usuarioBusca.email);
+        const usuarioBuscado = listaUsuarios.find((itemUsuario) => itemUsuario.email === usuario.email);
         if(usuarioBuscado)
         {
             if(usuarioBuscado.password === usuario.password)
             {
+                console.log('Se inicio sesion exitosamente.');
                 return usuarioBuscado;
             }else
             {
