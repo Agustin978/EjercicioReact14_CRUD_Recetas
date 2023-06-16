@@ -2,15 +2,15 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import 'sweetalert2/dist/sweetalert2.css'
 import Swal from "sweetalert2";
-import { consultaBorrarProducto, obtenerProductos } from "../../helpers/queries";
+import { APIBorrarReceta, obtenerRecetas } from "../../helpers/queries";
 
 
-const ItemProducto = ({producto, setProductos}) => {
+const ItemReceta = ({platillo, setPlatillos}) => {
 
-  const borrarProducto =()=>{
+  const borrarReceta =()=>{
     Swal.fire({
-      title: '¿Esta seguro de eliminar el producto?',
-      text: "No se puede revertir este paso",
+      title: '¿Esta seguro que desea eliminar este platillo?',
+      text: "No se podrá revertir este proceso",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -20,16 +20,14 @@ const ItemProducto = ({producto, setProductos}) => {
     }).then((result) => {
       if (result.isConfirmed) {
       
-        //aqui tengo que hacer la peticion DELETE
-        consultaBorrarProducto(producto.id).then( (respuesta) =>{
+        APIBorrarReceta(platillo.id).then( (respuesta) =>{
           if(respuesta.status === 200){
             Swal.fire(
-              'Producto eliminado',
-              `El producto ${producto.nombreProducto} fue eliminado`,
+              'Platillo eliminado',
+              `El platillo ${platillo.nombrePlatillo} fue eliminado`,
               'success'
             );
-            //actualizar el state producto del componente Administrador
-            obtenerProductos().then((respuesta)=> setProductos(respuesta) )
+            obtenerRecetas().then((respuesta)=> setPlatillos(respuesta) )
             
           }else{
             Swal.fire(
@@ -45,14 +43,13 @@ const ItemProducto = ({producto, setProductos}) => {
 
    return (
     <tr>
-      <td>{producto.id}</td>
-      <td>{producto.nombreProducto}</td>
-      <td>${producto.precio}</td>
-      <td>{producto.imagen}</td>
-      <td>{producto.categoria}</td>
+      <td>{platillo.id}</td>
+      <td>{platillo.nombrePlatillo}</td>
+      <td>{platillo.imagen}</td>
+      <td>{platillo.categoria}</td>
       <td>
-        <Link className="btn btn-warning" to={`/administrador/editar/${producto.id}`}>Editar</Link>
-        <Button variant="danger" onClick={borrarProducto}>
+        <Link className="btn btn-warning" to={`/administrador/editar/${platillo.id}`}>Editar</Link>
+        <Button variant="danger" onClick={borrarReceta}>
           Borrar
         </Button>
       </td>
@@ -60,4 +57,4 @@ const ItemProducto = ({producto, setProductos}) => {
   );
 };
 
-export default ItemProducto;
+export default ItemReceta;

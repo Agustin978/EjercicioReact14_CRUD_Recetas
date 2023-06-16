@@ -11,7 +11,6 @@ export const login = async (usuario)=>{
         if(usuarioBuscado){
             console.log('Email encontrado');
             if(usuarioBuscado.password === usuario.password){
-                console.log('encontramos al usuario!!!')
                 return usuarioBuscado;
             }else{
                 console.log('password incorrecto');
@@ -28,29 +27,29 @@ export const login = async (usuario)=>{
     }
 }
 
-export const obtenerProductos = async()=>{
+export const obtenerRecetas = async()=>{
     try{
-        const respuesta = await fetch(URL_Producto);
-        const listaProductos = await respuesta.json();
-        return listaProductos;
+        const respuesta = await fetch(URL_RECETA);
+        const conjuntoRecetas = await respuesta.json();
+        return conjuntoRecetas;
     }catch(error){
         console.log(error)
     }
 } 
 
-export const obtenerProducto = async(id)=>{
+export const obtenerReceta = async(id)=>{
     try{
-        const respuesta = await fetch(`${URL_Producto}/${id}`);
-        const productoEditar = await respuesta.json();
-        return productoEditar;
+        const respuesta = await fetch(`${URL_RECETA}/${id}`);
+        const recetaEditar = await respuesta.json();
+        return recetaEditar;
     }catch(error){
         console.log(error)
     }
 } 
 
-export const consultaBorrarProducto = async(id)=>{
+export const APIBorrarReceta = async(id)=>{
     try{
-        const respuesta = await fetch(`${URL_Producto}/${id}`, {
+        const respuesta = await fetch(`${URL_RECETA}/${id}`, {
             method: "DELETE"
         });
         return respuesta;
@@ -58,28 +57,28 @@ export const consultaBorrarProducto = async(id)=>{
         console.log(error);
     }
 }
-export const consultaCrearProducto = async(producto)=>{
+export const APICrearReceta = async(platillo)=>{
     try{
-        const respuesta = await fetch(URL_Producto, {
+        const respuesta = await fetch(URL_RECETA, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(producto)
+            body: JSON.stringify(platillo)
         });
         return respuesta;
     }catch (error){
         console.log(error);
     }
 }
-export const consultaEditarProducto = async(producto, id)=>{
+export const APIEditarReceta = async(platillo, id)=>{
     try{
-        const respuesta = await fetch(URL_Producto+'/'+id, {
+        const respuesta = await fetch(URL_RECETA+'/'+id, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(producto)
+            body: JSON.stringify(platillo)
         });
         return respuesta;
     }catch (error){

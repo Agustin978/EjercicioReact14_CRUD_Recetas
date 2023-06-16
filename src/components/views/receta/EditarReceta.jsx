@@ -1,12 +1,12 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
-import { consultaEditarProducto, obtenerProducto } from "../../helpers/queries";
+import { APIEditarReceta, obtenerReceta } from "../../helpers/queries";
 import { useParams, useNavigate  } from "react-router-dom";
 import 'sweetalert2/dist/sweetalert2.css'
 import Swal from 'sweetalert2';
 
-const EditarProducto = () => {
+const EditarReceta = () => {
   const { id } = useParams();
   const navegacion = useNavigate()
 
@@ -19,36 +19,34 @@ const EditarProducto = () => {
   } = useForm();
 
   useEffect(() => {
-    obtenerProducto(id).then((respuesta) => {
+    obtenerReceta(id).then((respuesta) => {
       console.log(respuesta);
-      setValue("nombreProducto", respuesta.nombreProducto)
-      setValue("precio", respuesta.precio)
+      setValue("nombrePlatillo", respuesta.nombrePlatillo)
       setValue("imagen", respuesta.imagen)
       setValue("categoria", respuesta.categoria)
       setValue("descripcion", respuesta.descripcion)
-      // todo: agregar el resto de los setValue
+      
     })
-   // Error al pedir el GET
     .catch((error) => {
       console.log(error);
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'No se pudo obtener el producto. Por favor, intenta nuevamente más tarde.',
+        text: 'No se pudo obtener el platillo. Por favor, intenta nuevamente más tarde.',
       })
     })
   }, [])
 
-  const onSubmit = (productoEditado,) => {
-    console.log(productoEditado);
-    consultaEditarProducto(productoEditado, id).then((respuesta)=>{
+  const onSubmit = (recetaEditada,) => {
+    console.log(recetaEditada);
+    APIEditarReceta(recetaEditada, id).then((respuesta)=>{
 
       if(respuesta){
       if(respuesta && respuesta.status === 200){
-        Swal.fire("Producto actualizado", `El producto: ${productoEditado.nombreProducto} fue actualizado correctamente`, "success")
+        Swal.fire("Receta actualizada", `El platillo: ${recetaEditada.nombrePlatillo} fue actualizado correctamente`, "success")
         navegacion("/administrador")
       }else{
-        Swal.fire("Ocurrio un error", `El producto: ${productoEditado.nombreProducto} no fue actualizado. Intente esta operacion en breve.`, "error")
+        Swal.fire("Ocurrio un error", `El platillo: ${recetaEditada.nombrePlatillo} no fue actualizado. Intente esta operacion mas tarde.`, "error")
       }
      }
     })
@@ -56,35 +54,35 @@ const EditarProducto = () => {
 
   return (
     <section className="container mainSection">
-      <h1 className="display-4 mt-5">Editar producto</h1>
+      <h1 className="display-4 mt-5">Editar Receta</h1>
       <hr />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Group className="mb-3" controlId="formNombreProdcuto">
-          <Form.Label>Producto*</Form.Label>
+        <Form.Group className="mb-3" controlId="formRecetaNombre">
+          <Form.Label>Receta*</Form.Label>
           <Form.Control
             type="text"
             placeholder="Ej: Cafe"
-            {...register("nombreProducto", {
-              required: "El nombre del producto es obligatorio",
+            {...register("nombrePlatillo", {
+              required: "El nombre del platillo es obligatorio",
               minLength: {
                 value: 2,
-                message: "La cantidad minima de caracteres es de 2 digitos",
+                message: "La cantidad minima de caracteres es de 2",
               },
               maxLength: {
                 value: 100,
-                message: "La cantidad minima de caracteres es de 2 digitos",
+                message: "La cantidad maxima de caracteres es de 100",
               },
             })}
           />
           <Form.Text className="text-danger">
-            {errors.nombreProducto?.message}
+            {errors.nombrePlatillo?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formDescripcion">
           <Form.Label>Descripción*</Form.Label>
           <Form.Control
             as="textarea"
-            placeholder="Escriba una descripción del producto"
+            placeholder="Escriba una descripción de la receta o platillo"
             {...register("descripcion", {
               required: "La descripción es obligatoria",
               minLength: {
@@ -99,27 +97,6 @@ const EditarProducto = () => {
           />
           <Form.Text className="text-danger">
             {errors.descripcion?.message}
-          </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formPrecio">
-          <Form.Label>Precio*</Form.Label>
-          <Form.Control
-            type="number"
-            placeholder="Ej: 50"
-            {...register("precio", {
-              required: "El precio del producto es obligatorio",
-              min: {
-                value: 1,
-                message: "El precio minimo es de $1",
-              },
-              max: {
-                value: 10000,
-                message: "El precio maximo es de $10000",
-              },
-            })}
-          />
-          <Form.Text className="text-danger">
-            {errors.precio?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formImagen">
@@ -139,20 +116,26 @@ const EditarProducto = () => {
           <Form.Label>Categoria*</Form.Label>
           <Form.Select
             {...register("categoria", {
-              required: "La imagen es obligatoria",
+              required: "Elegir una categoria es obligatorio",
             })}
           >
             <option value="">Seleccione una opcion</option>
-            <option value="bebida caliente">Bebida caliente</option>
-            <option value="bebida fria">Bebida fria</option>
-            <option value="dulce">Dulce</option>
-            <option value="salado">Salado</option>
+            <option value="aperitivos">Aperitivos</option>
+            <option value="panes y masas">Panes y masas</option>
+            <option value="comida argentina">Comida Argentina</option>
+            <option value="postres">Postres</option>
+            <option value="bebidas y tragos">Bebidas y tragos</option>
+            <option value="reposteria">Reposteria</option>
+            <option value="aves y carnes">Aves y carnes</option>
+            <option value="arroz, legumbres y pastas">Arroz, legumbres y pastas</option>
+            <option value="mariscos y pescados">Mariscos y pescados</option>
+            <option value="sopas y caldos">Sopas y caldos</option>
           </Form.Select>
           <Form.Text className="text-danger">
             {errors.categoria?.message}
           </Form.Text>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="warning" type="submit">
           Guardar
         </Button>
       </Form>
@@ -160,4 +143,4 @@ const EditarProducto = () => {
   );
 };
 
-export default EditarProducto;
+export default EditarReceta;
