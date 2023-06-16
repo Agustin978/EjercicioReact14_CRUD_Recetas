@@ -8,7 +8,7 @@ const Login = ({setUsuarioLogueado}) => {
     const {register, handleSubmit, formState:{errors}, reset} = useForm();
     const navegacion = useNavigate();
 
-    const onSubmit = (usuario)
+    const onSubmit = (usuario) =>
     {
         //Aqui debo realizar los controles para el ingreso del usuario logueado.
         login(usuario).then(respuesta => 
