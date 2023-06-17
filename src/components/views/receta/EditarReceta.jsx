@@ -120,16 +120,16 @@ const EditarReceta = () => {
             })}
           >
             <option value="">Seleccione una opcion</option>
-            <option value="aperitivos">Aperitivos</option>
-            <option value="panes y masas">Panes y masas</option>
-            <option value="comida argentina">Comida Argentina</option>
-            <option value="postres">Postres</option>
-            <option value="bebidas y tragos">Bebidas y tragos</option>
-            <option value="reposteria">Reposteria</option>
-            <option value="aves y carnes">Aves y carnes</option>
-            <option value="arroz, legumbres y pastas">Arroz, legumbres y pastas</option>
-            <option value="mariscos y pescados">Mariscos y pescados</option>
-            <option value="sopas y caldos">Sopas y caldos</option>
+            <option value="Aperitivos">Aperitivos</option>
+            <option value="Panes y masas">Panes y masas</option>
+            <option value="Comida Argentina">Comida Argentina</option>
+            <option value="Postres">Postres</option>
+            <option value="Bebidas y tragos">Bebidas y tragos</option>
+            <option value="Reposteria">Reposteria</option>
+            <option value="Aves y carnes">Aves y carnes</option>
+            <option value="Arroz, legumbres y pastas">Arroz, legumbres y pastas</option>
+            <option value="Mariscos y pescados">Mariscos y pescados</option>
+            <option value="Sopas y caldos">Sopas y caldos</option>
           </Form.Select>
           <Form.Text className="text-danger">
             {errors.categoria?.message}

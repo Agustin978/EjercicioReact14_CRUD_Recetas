@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css"
 import { Link } from "react-router-dom";
 import 'sweetalert2/dist/sweetalert2.css'
 import Swal from "sweetalert2";
@@ -45,10 +46,11 @@ const ItemReceta = ({platillo, setPlatillos}) => {
     <tr>
       <td>{platillo.id}</td>
       <td>{platillo.nombrePlatillo}</td>
-      <td>{platillo.imagen}</td>
+      <td className="truncado">{platillo.descripcion}</td>
+      <td className="truncado">{platillo.imagen}</td>
       <td>{platillo.categoria}</td>
       <td>
-        <Link className="btn btn-warning" to={`/administrador/editar/${platillo.id}`}>Editar</Link>
+        <Link className="btn btn-warning me-2" to={`/administrador/editar/${platillo.id}`}>Editar</Link>
         <Button variant="danger" onClick={borrarReceta}>
           Borrar
         </Button>

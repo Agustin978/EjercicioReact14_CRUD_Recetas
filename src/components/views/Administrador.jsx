@@ -1,4 +1,5 @@
 import { Table } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css"
 import ItemReceta from "./receta/ItemReceta";
 import { useEffect, useState } from "react";
 import { obtenerRecetas } from "../helpers/queries";
@@ -27,11 +28,10 @@ const Administrador = () => {
     });
   },[])
 
-
     return (
         <section className="container mainSection">
         <div className="d-flex justify-content-between align-items-center mt-5">
-          <h1 className="display-4 ">Recetas disponibles</h1>
+          <h1 className="display-4">Recetas disponibles</h1>
           <Link className="btn btn-primary" to='/administrador/crear'>
             Agregar
           </Link>
@@ -42,6 +42,7 @@ const Administrador = () => {
             <tr>
               <th>Cod</th>
               <th>Receta</th>
+              <th>Descripcion</th>
               <th>URL de Imagen</th>
               <th>Categoria</th>
               <th>Opciones</th>
