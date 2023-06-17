@@ -10,16 +10,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/views/Login";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import RutasAdministrador from "./components/routes/RutasAdministrador";
+import { useState } from "react";
 
 function App() {
+  const usuarioEnStorage = JSON.parse(sessionStorage.getItem('user')) || {};
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuarioEnStorage);
+
   return (
     <BrowserRouter>
-      <Menu></Menu>
+      <Menu usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado}></Menu>
       <Routes>
         <Route exact path="/" element={<Inicio></Inicio>}></Route>
         {/*<Route exact path="/administrador" element={<Administrador></Administrador>}></Route>*/}
         {/*<Route exact path="/administrador/crear" element={<CrearReceta></CrearReceta>}></Route>*/}
-        <Route exact path="/login" element={<Login></Login>}></Route>
+        <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}></Route>
         <Route path="/administrador/*" element={
           <RutasProtegidas>
             <RutasAdministrador></RutasAdministrador>
