@@ -2,7 +2,7 @@ import { Form, Button, Container, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { login } from "../helpers/querys";
+import { login } from "../helpers/queries";
 
 const Login = ({setUsuarioLogueado}) => {
     const {register, handleSubmit, formState:{errors}, reset} = useForm();

@@ -1,18 +1,55 @@
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import 'sweetalert2/dist/sweetalert2.css'
+import Swal from "sweetalert2";
+import { APIBorrarReceta, obtenerRecetas } from "../../helpers/queries";
 
 
-const ItemReceta = () => {
+const ItemReceta = ({platillo, setPlatillos}) => {
+
+  const borrarReceta =()=>{
+    Swal.fire({
+      title: '¿Esta seguro que desea eliminar este platillo?',
+      text: "No se podrá revertir este proceso",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Borrar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+      
+        APIBorrarReceta(platillo.id).then( (respuesta) =>{
+          if(respuesta.status === 200){
+            Swal.fire(
+              'Platillo eliminado',
+              `El platillo ${platillo.nombrePlatillo} fue eliminado`,
+              'success'
+            );
+            obtenerRecetas().then((respuesta)=> setPlatillos(respuesta) )
+            
+          }else{
+            Swal.fire(
+              'Se produjo un error',
+              `Intente realizar esta operacion mas tarde`,
+              'error'
+            )
+          }
+        })
+      }
+    })
+  }
+
    return (
     <tr>
-      {/* <td>{props.producto._id}</td> */}
-      <td>1</td>
-      <td>MOCHACCINO CANELA</td>
-      <td>$1.740,00</td>
-      <td>https://images.pexels.com/photos/6802983/pexels-photo-6802983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1</td>
-      <td>Café</td>
+      <td>{platillo.id}</td>
+      <td>{platillo.nombrePlatillo}</td>
+      <td>{platillo.imagen}</td>
+      <td>{platillo.categoria}</td>
       <td>
-        <Button className="btn btn-warning">Editar</Button>
-        <Button variant="danger">
+        <Link className="btn btn-warning" to={`/administrador/editar/${platillo.id}`}>Editar</Link>
+        <Button variant="danger" onClick={borrarReceta}>
           Borrar
         </Button>
       </td>

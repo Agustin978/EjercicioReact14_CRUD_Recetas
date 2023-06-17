@@ -1,12 +1,31 @@
 {
-    "recetas": [
-      { "id": 1, "nombreReceta": "Carne a la parrilla", "urlImg": "https://www.infobae.com/new-resizer/y6x15YDraKLHLpxLF87_VEa5UV0=/768x432/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2018/08/09173312/asado.jpg", "categoria":"Carnes rojas"}
-    ],
-    "usuarios": [
-      { "id": 1,
-        "nombreUsuario": "admin",
-        "email": "admin@admin.com",
-        "password": "HolAdmin$45"
-      }
-    ]
+  "recetas": [
+    {
+      "id": 1,
+      "nombrePlatillo": "Carne a la parrilla",
+      "imagen": "https://www.infobae.com/new-resizer/y6x15YDraKLHLpxLF87_VEa5UV0=/768x432/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2018/08/09173312/asado.jpg",
+      "categoria": "Comida Argentina"
+    },
+    {
+      "nombrePlatillo": "café",
+      "descripcion": "alguna descripcion",
+      "imagen": "linkimagen",
+      "categoria": "bebida caliente",
+      "id": 2
+    },
+    {
+      "categoria": "bebida caliente",
+      "imagen": "https://images.pexels.com/photos/1672304/pexels-photo-1672304.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "nombrePlatillo": "medialuna",
+      "id": 3
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nombreUsuario": "admin",
+      "email": "admin@admin.com",
+      "password": "HolAdmin$45"
+    }
+  ]
 }

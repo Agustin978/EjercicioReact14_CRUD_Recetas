@@ -19,6 +19,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <NavLink end className='nav-item nav-link' to={'/'}>Inicio</NavLink>
+            <NavLink end className='nav-item nav-link' to={'*'}>Contacto</NavLink>
             {
               usuarioLogueado.email?(
                 <>
@@ -26,8 +27,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
                   <Button variant="danger" onClick={logout}>Logout</Button>
                 </>
               ):<NavLink end className='nav-item nav-link' to={'/login'}>Login</NavLink>
-            }
-            <NavLink end className='nav-item nav-link' to={'*'}>Contacto</NavLink>
+            }          
           </Nav>
         </Navbar.Collapse>
       </Container>

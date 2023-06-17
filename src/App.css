@@ -16,6 +16,7 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
+  z-index: -1;
   }
 
   .error404-texto {
@@ -25,8 +26,17 @@
     transform: translate(-50%, -50%);
     font-size: 100px;
     color: white;
+    z-index: 1;
   }
-
+  .error404-texto2 {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: lightgoldenrodyellow;
+    z-index: 1;
+  }
   .error404-contenido {
     position: absolute;
     bottom: -20px;
