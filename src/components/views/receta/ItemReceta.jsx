@@ -1,16 +1,13 @@
 import { Button } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import 'sweetalert2/dist/sweetalert2.css'
 import Swal from "sweetalert2";
-import { APIBorrarReceta, obtenerRecetas } from "../../helpers/queries";
+import { APIBorrarReceta } from "../../helpers/queries";
 
-
-const ItemReceta = ({platillo, setPlatillos}) => {
-
-  const borrarReceta =()=>{
+const ItemReceta = ({ platillo, eliminarReceta }) => {
+  const borrarReceta = () => {
     Swal.fire({
-      title: '¿Esta seguro que desea eliminar este platillo?',
+      title: '¿Está seguro que desea eliminar este platillo?',
       text: "No se podrá revertir este proceso",
       icon: 'warning',
       showCancelButton: true,
@@ -20,29 +17,35 @@ const ItemReceta = ({platillo, setPlatillos}) => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-      
-        APIBorrarReceta(platillo.id).then( (respuesta) =>{
-          if(respuesta.status === 200){
-            Swal.fire(
-              'Platillo eliminado',
-              `El platillo ${platillo.nombrePlatillo} fue eliminado`,
-              'success'
-            );
-            obtenerRecetas().then((respuesta)=> setPlatillos(respuesta) )
-            
-          }else{
+        APIBorrarReceta(platillo.id)
+          .then((respuesta) => {
+            if (respuesta.status === 200) {
+              Swal.fire(
+                'Platillo eliminado',
+                `El platillo ${platillo.nombrePlatillo} fue eliminado`,
+                'success'
+              );
+              eliminarReceta(platillo.id);
+            } else {
+              Swal.fire(
+                'Se produjo un error',
+                'Intente realizar esta operación más tarde',
+                'error'
+              );
+            }
+          })
+          .catch((error) => {
             Swal.fire(
               'Se produjo un error',
-              `Intente realizar esta operacion mas tarde`,
+              'Intente realizar esta operación más tarde',
               'error'
-            )
-          }
-        })
+            );
+          });
       }
-    })
-  }
+    });
+  };
 
-   return (
+  return (
     <tr>
       <td>{platillo.id}</td>
       <td>{platillo.nombrePlatillo}</td>
@@ -50,7 +53,9 @@ const ItemReceta = ({platillo, setPlatillos}) => {
       <td className="truncado">{platillo.imagen}</td>
       <td>{platillo.categoria}</td>
       <td>
-        <Link className="btn btn-warning me-2" to={`/administrador/editar/${platillo.id}`}>Editar</Link>
+        <Link className="btn btn-warning me-2" to={`/administrador/editar/${platillo.id}`}>
+          Editar
+        </Link>
         <Button variant="danger" onClick={borrarReceta}>
           Borrar
         </Button>
