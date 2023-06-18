@@ -24,7 +24,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
               usuarioLogueado.email?(
                 <>
                   <NavLink end className='nav-item nav-link' to={'/administrador'}>Administrador</NavLink>
-                  <Button variant="danger" onClick={logout}>Logout</Button>
+                  <Button variant="dark" onClick={logout}>Logout</Button>
                 </>
               ):<NavLink end className='nav-item nav-link' to={'/login'}>Login</NavLink>
             }          
