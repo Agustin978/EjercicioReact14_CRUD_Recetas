@@ -5,13 +5,13 @@ import EditarReceta from "../views/receta/EditarReceta";
 
 const RutasAdministrador = () => {
     return (
-        <div>
+        <>
             <Routes>
                 <Route exact path="/" element={<Administrador></Administrador>}></Route>
                 <Route exact path="/crear" element={<CrearReceta></CrearReceta>}></Route>
-                <Route exact path="/editar" element={<EditarReceta></EditarReceta>}></Route>
+                <Route exact path="/editar/:id" element={<EditarReceta></EditarReceta>}></Route>
             </Routes>
-        </div>
+        </>
     );
 };
 

@@ -1,4 +1,5 @@
 import { Form, Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { APIEditarReceta, obtenerReceta } from "../../helpers/queries";
@@ -135,7 +136,7 @@ const EditarReceta = () => {
             {errors.categoria?.message}
           </Form.Text>
         </Form.Group>
-        <Button variant="warning" type="submit">
+        <Button variant="warning" className="my-4" type="submit">
           Guardar
         </Button>
       </Form>
