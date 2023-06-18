@@ -49,3 +49,18 @@
   overflow: hidden;
   text-overflow: ellipsis;
   }
+
+  .RecetaCard{
+    height: 400px
+  }
+
+  .RecetaCard-img{
+   height: 200px;
+   object-fit: cover;
+  }
+
+  .RecetaCard-desc {
+    max-height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
