@@ -26,7 +26,7 @@ const CrearReceta = () => {
       }else{
         Swal.fire(
           'Se produjo un error',
-          `Intente realizar esta operacion mas tarde`,
+          `Intenta realizar esta operacion mas tarde`,
           'error'
         )
       }

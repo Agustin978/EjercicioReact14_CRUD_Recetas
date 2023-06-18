@@ -47,7 +47,7 @@ const EditarReceta = () => {
         Swal.fire("Receta actualizada", `El platillo: ${recetaEditada.nombrePlatillo} fue actualizado correctamente`, "success")
         navegacion("/administrador")
       }else{
-        Swal.fire("Ocurrio un error", `El platillo: ${recetaEditada.nombrePlatillo} no fue actualizado. Intente esta operacion mas tarde.`, "error")
+        Swal.fire("Ocurrio un error", `El platillo: ${recetaEditada.nombrePlatillo} no fue actualizado. Intenta esta operacion mas tarde.`, "error")
       }
      }
     })

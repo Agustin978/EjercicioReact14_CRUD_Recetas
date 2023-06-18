@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css"
 import CardReceta from "./receta/CardReceta";
+import { obtenerRecetas } from "../helpers/queries"
+import Swal from "sweetalert2";
+import 'sweetalert2/dist/sweetalert2.css'
+
 const Inicio = () => {
+  const [recetas, setRecetas] = useState([]);
+
+  useEffect(() => {
+    obtenerRecetas()
+      .then((respuesta) => {
+        setRecetas(respuesta);
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "No se pudo obtener el listado de recetas. Por favor, intenta nuevamente más tarde.",
+        });
+      });
+  }, []);
+
   return (
     <section className="mainSection">   
       <Carousel>
@@ -39,14 +59,13 @@ const Inicio = () => {
         <h1 className="display-4 text-center mt-5">Nuestras recetas</h1>
         <hr />
         <Row>
-          <CardReceta></CardReceta>
-          <CardReceta></CardReceta>
-          <CardReceta></CardReceta>
-          <CardReceta></CardReceta>
+          {recetas.map((receta) => (
+            <CardReceta key={receta.id} receta={receta} />
+          ))}
         </Row>
       </Container>
     </section>
   );
 };
 
-export default Inicio
+export default Inicio;

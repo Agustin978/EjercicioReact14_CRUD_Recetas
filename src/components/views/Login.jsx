@@ -25,7 +25,7 @@ const Login = ({setUsuarioLogueado}) => {
                 Swal.fire('Error', 'Email o password incorrectos.', 'error');
             }else
             {
-                Swal.fire('Error', 'Hay inconvenientes para conectarse a la base de datos actualmente. Intente nuevamente mas tarde.', 'error');
+                Swal.fire('Error', 'Hay inconvenientes para conectarse a la base de datos actualmente. Por favor, Intenta nuevamente mas tarde.', 'error');
             }
         });
         reset();

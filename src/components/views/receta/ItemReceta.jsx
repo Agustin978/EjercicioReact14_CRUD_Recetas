@@ -29,7 +29,7 @@ const ItemReceta = ({ platillo, eliminarReceta }) => {
             } else {
               Swal.fire(
                 'Se produjo un error',
-                'Intente realizar esta operación más tarde',
+                'Intenta realizar esta operación mas tarde',
                 'error'
               );
             }
@@ -37,7 +37,7 @@ const ItemReceta = ({ platillo, eliminarReceta }) => {
           .catch((error) => {
             Swal.fire(
               'Se produjo un error',
-              'Intente realizar esta operación más tarde',
+              'Intenta realizar esta operación mas tarde',
               'error'
             );
           });
