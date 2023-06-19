@@ -2,22 +2,23 @@
   "recetas": [
     {
       "nombrePlatillo": "Carne a la parrilla",
-      "descripcion": "Deliciosa costumbre de domingos. Su uso empieza en el año",
-      "imagen": "https://www.infobae.com/new-resizer/y6x15YDraKLHLpxLF87_VEa5UV0=/768x432/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2018/08/09173312/asado.jpg",
+      "descripcion": "La carne a la parrilla puede ser todo un manjar si sabes trucos para sacarle partido a este método de cocción. La cocinamos sin salsa pero con un marinado previo que ayuda a conservar la humedad de la carne para que al cortar esté bien jugosa. Si te gusta variar en tus recetas de carne, en El roncón del sazón te contamos cómo preparar esta receta tan básica como deliciosa.\nPrepara la parrillada\nAsegúrate de que los trozos de carbón sean grandes y que no se desmonoren fácilmente.\nTu parrilla debe estar limpia y sin rastros de asados anteriores que puedan arruinar el sabor de tu carne.\nPrecalienta la parrilla y dale unos brochazos de aceite vegetal. Esto hará que tu carne quede más jugosa y no se pegue o queme.\n¿Cómo preparar la carne para asar?\nLa carne debe estar a temperatura ambiente al comenzar a asarla. Si la pones fría, puede ocurrir que sólo se cocine la parte externa y su interior quede crudo.\nSazona generosamente cada corte. Las especies e ingredientes con que los marines son los que le darán el toque distintivo a tu carne asada, dejándola jugosa ¡y deliciosa!\nCuando los cortes de carne estén listos, déjalos reposar sobre una superficie tibia para que concentren sus jugos y mejoren su sabor.\nLa temperatura perfecta de la parrilla para carne jugosa\nEl fuego de la parrilla se considera fuerte si acercas tus manos y sólo puedes mantenerlas de 1 a 2 segundos. Es fuego mediano si tus manos soportan de 3 a 4 segundos cerca de la parrilla y es fuego bajo si lo aguantas de 5 a 7 segundos.\n\nSi puedes soportar más de ese tiempo, debes avivarlo aún más para que logres la carne asada perfecta.",
+      "imagen": "https://simplementerecetas.com/wp-content/uploads/2020/08/Filete-de-carne-a-la-parrilla.jpg",
       "categoria": "Comida Argentina",
       "id": 1
     },
     {
-      "nombrePlatillo": "café",
-      "descripcion": "alguna descripcion",
-      "imagen": "linkimagen",
-      "categoria": "bebida caliente",
+      "nombrePlatillo": "Torta de chocolate",
+      "descripcion": "Maravillosa Torta de chocolate, una versión mucho más sencilla y fácil de realizar. Un bizcocho preciso, sabroso y con una textura que no necesita ni remojo en su interior. Por supuesto si desean pueden hacerlo igual.\n\nEs una torta exquisita en sabor, ideal para celebraciones de cumpleaños y para todos aquellos amantes del chocolate en sí. También queda bien como postre.\n\nUn bizcocho realizado de una manera mucho más fácil, ideal para quienes no tienen mucha experiencia en el área de pasteleria.\n\nSi por las circunstancias no tienen algunas de las leches para el relleno, no les recomiendo reemplazar ninguna. Simplemente puede rellenarla con manjar, mermelada o crema batida. Para la realización de este bizcocho hay una división entre ingredientes húmedos y secos, y la unión de ambos al final. Lo que resulta mucho más fácil y rápido el proceso de preparación. Para la presentación pueden decorar con alguna fruta como frutillas, frambuesas, también pueden colocar virutas de chocolate o lo que les agrade para finalizar esta delicia.",
+      "imagen": "https://n9z4u8f2.rocketcdn.me/wp-content/uploads/2020/08/Torta-de-chocolate04.jpg",
+      "categoria": "Postres",
       "id": 2
     },
     {
-      "categoria": "bebida caliente",
-      "imagen": "https://images.pexels.com/photos/1672304/pexels-photo-1672304.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "nombrePlatillo": "medialuna",
+      "nombrePlatillo": "Pasta alla carbonara",
+      "descripcion": "Debemos decir que somos fans de la cocina italiana, y es por ello que hoy les traemos esta maravillosa receta de Pasta alla carbonara, un plato muy tradicional de esta cocina. Y si bien tiene muy pocos ingredientes, hay algunas variantes internacionalmente para poder adaptar de la mejor manera esta receta. Originalmente se hace con guanciale, que es una embutido italiano, elaborado a partir de la papada o mejilla del cerdo. En muchos lugares lo reemplazan por panceta. Y si bien la panceta proviene del cerdo pero de la espalda, vientre y el costado del animal, existe esta diferencia, y debemos decir que queda muy buena como alternativa.\nEn cuanto al queso, el más común es el pecorino romano, pero también muchas personas lo reemplazan por parmesano ya que es más accesible para muchas personas.\nPor nada el mundo le vayan a agregar crema, ya que la cremosidad se la da el huevo y el queso en sí. También la cocción y mezcla adecuada.\nLa carbonara es muy popular por lo rápido de su preparación, es un plato que saca de apuro y así con poco ingredientes se obtiene un plato delicioso.\n\n",
+      "imagen": "https://n9z4u8f2.rocketcdn.me/wp-content/uploads/2022/11/Carbonara01.jpg",
+      "categoria": "Arroz, legumbres y pastas",
       "id": 3
     },
     {
