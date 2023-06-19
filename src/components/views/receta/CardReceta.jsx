@@ -1,6 +1,7 @@
 import React from "react";
-import { Col, Card, Button } from "react-bootstrap";
-import "../../../App.css"
+import { Col, Card } from "react-bootstrap";
+import "../../../App.css";
+import { Link } from "react-router-dom";
 
 const CardReceta = ({ receta }) => {
   return (
@@ -10,7 +11,7 @@ const CardReceta = ({ receta }) => {
         <Card.Body>
           <Card.Title>{receta.nombrePlatillo}</Card.Title>
           <Card.Text className="RecetaCard-desc">{receta.descripcion}</Card.Text>
-          <Button variant="primary">Ver detalle</Button>
+          <Link to={`/receta/${receta.id}`} className="btn btn-primary">Ver detalle</Link>
         </Card.Body>
       </Card>
     </Col>

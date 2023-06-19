@@ -62,7 +62,7 @@ const EditarReceta = () => {
           <Form.Label>Receta*</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Ej: Cafe"
+            placeholder="Ej: Strudel de manzana"
             {...register("nombrePlatillo", {
               required: "El nombre del platillo es obligatorio",
               minLength: {
@@ -91,8 +91,8 @@ const EditarReceta = () => {
                 message: "La descripción debe tener al menos 10 caracteres",
               },
               maxLength: {
-                value: 500,
-                message: "La descripción debe tener como máximo 500 caracteres",
+                value: 2000,
+                message: "La descripción debe tener como máximo 2000 caracteres",
               },
             })}
           />

@@ -19,6 +19,13 @@
       "imagen": "https://images.pexels.com/photos/1672304/pexels-photo-1672304.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       "nombrePlatillo": "medialuna",
       "id": 3
+    },
+    {
+      "nombrePlatillo": "Sanguche de milanesa",
+      "descripcion": "Es sabido que los tucumanos hacen el mejor sánguche de milanga. Y si no lo sabías, lo compartimos con vos. Basta ver las opiniones de los usuarios y viajeros de TripAdvisor, donde medio centenar de personas lo califican con los mejores elogios. Algunos dicen que la clave está en el pan sanguchero, una combinación de figaza o pan de Viena y pan francés, suave, sin costra que lastime el paladar, y con una miga interior amigable que previamente se tuesta apenas para abrazar las cinco capas de milanesas, junto con la lechuga cortada como si fuera repollo, y rodajitas finas de tomate. Dicho esto, aquí van algunos consejos de los expertos, para que tu sándwich de milanesa sea auténticamente tucumano:\n\n#1. Estirar la carne de milanesa con el martillo de carne y pinchar con un tenedor.\n\n#2. Macerar la carne en el huevo batido con ajo picado, sal, pimienta y perejil fresco picado.\n\n#3. Usar sólo pan rallado.\n\n#4. Empanar la carne en una fuente donde pueda cubrirla con un separador de nylon, y aplastarla con el palote.\n\n#5. Freír en abundante aceite vuelta y vuelta, apenas dorada, para que la carne no se endurezca.\n\n#6. Para alivianar la mayonesa, añadirle una cucharada de leche y mezclar.\n\n#7. La lechuga debe estar cortada en tiritas, como si fueran fideos.\n\n#8. Las rodajas de tomate deben ser finitas.\n\n#9. La milanesa se corta en lonjas del ancho del pan y se super ponen.\n\n#10. El pan sanguchero se consigue en San Miguel de Tucumán; debe ser suave como el pan de Viena, del tamaño de una flautita o baguette.\n\n¿Picar o no picar? Esa es la cuestión. Es la pregunta repetida en los puestos, bares y sangucherías de San Miguel de Tucumán, cuando el sanguchero está por cerrar el pan con todo el contenido en su interior de capas de milanesa, lechuga y tomate. El comensal deberá decidir por sí o por no para disfrutarlo con una salsa que tiene variantes de picor según su autor, pero por lo general lleva tomate rallado, cebolla, ajo picado, ají molido y ají locoto en polvo.\n",
+      "imagen": "https://www.cucinare.tv/wp-content/uploads/2021/06/S%C3%A1ndwich-de-milanesa.jpg",
+      "categoria": "Comida Argentina",
+      "id": 4
     }
   ],
   "usuarios": [

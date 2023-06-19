@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Carousel } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap.min.css";
 import CardReceta from "./receta/CardReceta";
-import { obtenerRecetas } from "../helpers/queries"
+import { obtenerRecetas } from "../helpers/queries";
 import Swal from "sweetalert2";
-import 'sweetalert2/dist/sweetalert2.css'
+import "sweetalert2/dist/sweetalert2.css";
+import { Link } from "react-router-dom"
+import InfoReceta from "../views/InfoReceta";
 
 const Inicio = () => {
   const [recetas, setRecetas] = useState([]);
@@ -18,13 +20,14 @@ const Inicio = () => {
         Swal.fire({
           icon: "error",
           title: "Error",
-          text: "No se pudo obtener el listado de recetas. Por favor, intenta nuevamente más tarde.",
+          text:
+            "No se pudo obtener el listado de recetas. Por favor, intenta nuevamente más tarde.",
         });
       });
   }, []);
 
   return (
-    <section className="mainSection">   
+    <section className="mainSection">
       <Carousel>
         <Carousel.Item>
           <img

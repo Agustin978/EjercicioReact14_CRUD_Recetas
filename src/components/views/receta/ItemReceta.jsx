@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../../../App.css"
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { APIBorrarReceta } from "../../helpers/queries";

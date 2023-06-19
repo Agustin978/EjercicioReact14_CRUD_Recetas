@@ -26,7 +26,7 @@ const CrearReceta = () => {
       }else{
         Swal.fire(
           'Se produjo un error',
-          `Intenta realizar esta operacion mas tarde`,
+          `Intente realizar esta operacion mas tarde`,
           'error'
         )
       }
@@ -42,7 +42,7 @@ const CrearReceta = () => {
           <Form.Label>Receta*</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Ej: Cafe"
+            placeholder="Ej: Strudel de manzana"
             {...register("nombrePlatillo", {
               required: "El nombre del platilllo es obligatorio",
               minLength: {
@@ -71,8 +71,8 @@ const CrearReceta = () => {
                 message: "La descripción debe tener al menos 10 caracteres",
               },
               maxLength: {
-                value: 500,
-                message: "La descripción debe tener como máximo 500 caracteres",
+                value: 2000,
+                message: "La descripción debe tener como máximo 2000 caracteres",
               },
             })}
           />

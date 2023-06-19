@@ -1,27 +1,44 @@
 import { Container, Card, Row, Col } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import "../../App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import { useParams } from "react-router-dom";
+import { obtenerReceta } from "../helpers/queries";
 
 const InfoReceta = () => {
+  const { id } = useParams();
+  const [receta, setReceta] = useState(null);
+
+  useEffect(() => {
+    obtenerReceta(id)
+      .then((receta) => {
+        setReceta(receta);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
+
   return (
     <Container className="my-3 mainSection">
       <Card>
         <Row>
           <Col md={6}>
-            <Card.Img
-              variant="top"
-              src="https://images.pexels.com/photos/10273537/pexels-photo-10273537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            />
+            <Card.Img variant="top" src={receta?.imagen} />
           </Col>
           <Col md={6}>
             <Card.Body>
-              <Card.Title>MOCHACCINO CANELA</Card.Title>
+              <Card.Title>{receta?.nombrePlatillo}</Card.Title>
               <hr />
               <Card.Text>
-              Combinación perfecta entre leche, choclate, café intenso y un toque de canela. Café con granos 100% de arábica brasileña. Todo en una capsula inteligente.
-              <br/>
-              <br/>
-              <span className="text-danger fw-semibold ">Categoria:</span> Café
-              <br />
-              <span className="text-danger fw-semibold ">Precio:</span> $1.740,00</Card.Text>
+                {receta?.descripcion}
+                <br />
+                <br />
+                <span className="text-danger fw-semibold">Categoria:</span>{" "}
+                {receta?.categoria}
+                <br />
+              </Card.Text>
             </Card.Body>
           </Col>
         </Row>
