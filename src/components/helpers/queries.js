@@ -1,5 +1,6 @@
 const URL_usuario = import.meta.env.VITE_API_USUARIO;
 const URL_receta = import.meta.env.VITE_API_RECETA;
+const URL_comentarios = import.meta.env.VITE_API_COMENTARIOS;
 
 export const login = async (usuario) => {
     console.log(usuario);
@@ -147,5 +148,24 @@ export const APIEditarReceta = async (platillo, id) => {
     } catch (error) {
         console.log(error);
         return false;
+    }
+}
+
+export const ingresaComentario = async (comentario) =>
+{
+    try
+    {
+        const respuesta = await fetch(URL_comentarios, {
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify(comentario)
+        });
+        return respuesta;
+    }catch(error)
+    {
+        console.log('A ocurrido un error: ',error);
+        return null;
     }
 }
