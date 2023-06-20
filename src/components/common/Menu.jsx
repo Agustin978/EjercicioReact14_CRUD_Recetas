@@ -21,12 +21,25 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
             <NavLink end className='nav-item nav-link' to={'/'}>Inicio</NavLink>
             <NavLink end className='nav-item nav-link' to={'*'}>Contacto</NavLink>
             {
-              usuarioLogueado.email?(
+              usuarioLogueado.type ?(
                 <>
-                  <NavLink end className='nav-item nav-link' to={'/administrador'}>Administrador</NavLink>
-                  <Button variant="dark" onClick={logout}>Logout</Button>
+                  {usuarioLogueado.type === 'admin' ?(
+                    <>
+                      <NavLink end className='nav-item nav-link' to={'/administrador'}>Administrador</NavLink>
+                      <Button variant="dark" onClick={logout}>Logout</Button>
+                    </>
+                  ) : (
+                    <>
+                      <Button variant="dark" onClick={logout}>Logout</Button>
+                    </>
+                  )}
                 </>
-              ):<NavLink end className='nav-item nav-link' to={'/login'}>Login</NavLink>
+              ):(
+                <>
+                  <NavLink end className='nav-item nav-link' to={'/login'}>Login</NavLink>
+                  <NavLink end className='nav-item nav-link' to={'/registrarse'}>Registrarse</NavLink>
+                </>
+              )
             }          
           </Nav>
         </Navbar.Collapse>

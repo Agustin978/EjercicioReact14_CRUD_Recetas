@@ -6,9 +6,12 @@ const RutasProtegidas = ({children}) => {
     if(!usuarioLogueado)
     {
         return <Navigate to={'/login'}></Navigate>;
-    }else
+    }else if(usuarioLogueado.type === 'admin')
     {
         return children;
+    }else
+    {
+        return <Navigate to={'/'}></Navigate>
     }
 };
 

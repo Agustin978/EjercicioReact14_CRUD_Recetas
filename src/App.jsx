@@ -10,6 +10,7 @@ import Login from "./components/views/Login";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import RutasAdministrador from "./components/routes/RutasAdministrador";
 import { useState } from "react";
+import RegistrarUsuarios from "./components/views/RegistrarUsuarios";
 
 function App() {
   const usuarioEnStorage = JSON.parse(sessionStorage.getItem('user')) || {};
@@ -30,6 +31,7 @@ function App() {
         }></Route>
       
         <Route path="/receta/:id" element={<InfoReceta />} />
+        <Route exact path="/registrarse" element={<RegistrarUsuarios></RegistrarUsuarios>}></Route>
         <Route path="*" element={<Error404></Error404>}></Route>    
       </Routes>
       <Footer></Footer>
