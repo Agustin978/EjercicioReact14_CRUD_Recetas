@@ -9,21 +9,80 @@ export const login = async (usuario) => {
         console.log(listaUsuarios);
         const usuarioBuscado = listaUsuarios.find((itemUsuario) => itemUsuario.email === usuario.email);
         if (usuarioBuscado) {
-            console.log('Email encontrado');
+            //console.log('Email encontrado');
             if (usuarioBuscado.password === usuario.password) {
                 return usuarioBuscado;
             } else {
-                console.log('password incorrecto');
-                return null;
+                //console.log('password incorrecto');
+                return 0;
             }
         } else {
-            console.log('email incorrecto');
-            return null;
+            //console.log('email incorrecto');
+            return 0;
         }
 
     } catch (error) {
         console.log(error);
         return null;
+    }
+}
+
+export const registraUsuario = async (nuevoUsuario) => 
+{
+    try
+    {
+        //Recupero los usuarios almacenados en la API
+        const respuesta = await fetch(URL_usuario);
+        const listaUsuarios = await respuesta.json();
+        const existeNomb = listaUsuarios.find((itemUsuario)=>itemUsuario.nombreUsuario === nuevoUsuario.nombreUsuario);
+        const existeEmail = listaUsuarios.find((itemUsuario)=>itemUsuario.email === nuevoUsuario.email);
+        //console.log(existeNomb);
+        if(!existeEmail && !existeNomb)
+        {
+            if(nuevoUsuario.password === nuevoUsuario.password_r)
+            {
+                APICreaUsuario(nuevoUsuario);
+                return 1;
+            }else
+            {
+                return 'La contraseña repetida no coincide con la contraseña ingresada inicialmente.';
+            }
+        }else
+        {
+            if(existeEmail && !existeNomb)
+            {
+                return 'El email ingresado ya se encuentra registrado.';
+            }else if(!existeEmail && existeNomb)
+            {
+                return'El nombre de usuario ingresado ya se encuentra registrado.';
+            }else if(existeEmail && existeNomb)
+            {
+                return 'El nombre de usuario y el mail ingresados ya se encuentran registrados.';
+            }
+        }
+    }catch(error)
+    {
+        console.log('A ocurrido un error: '+error);
+        return null;
+    }
+}
+
+const APICreaUsuario = async (nuevoUsuario) =>
+{
+    try
+    {
+        console.log(nuevoUsuario);
+        const respuesta = await fetch(URL_usuario, {
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify(nuevoUsuario)
+        });
+        return respuesta;
+    }catch(error)
+    {
+        console.log('A ocurrido un error: ',error);
     }
 }
 
