@@ -41,8 +41,15 @@
       "nombreUsuario": "alguien",
       "email": "alguien@gmail.com",
       "password": "HolAdmin$45",
-      "password_r": "HolAdmin$45",
+      "type": "user",
       "id": 2
+    },
+    {
+      "nombreUsuario": "alguien2",
+      "email": "alguien2@gmail.com",
+      "password": "HolAdmin$45",
+      "type": "user",
+      "id": 3
     }
   ]
 }
