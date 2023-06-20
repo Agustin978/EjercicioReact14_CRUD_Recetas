@@ -51,5 +51,13 @@
       "type": "user",
       "id": 3
     }
+  ],
+  "comentarios":[
+    {
+      "id":1,
+      "id_usuario":2,
+      "id_platillo":1,
+      "comentario":"Muy buena receta. Es sencilla y y muy bien explicada."
+    }
   ]
 }
