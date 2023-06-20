@@ -41,6 +41,8 @@ export const registraUsuario = async (nuevoUsuario) =>
         {
             if(nuevoUsuario.password === nuevoUsuario.password_r)
             {
+                delete nuevoUsuario.password_r;
+                nuevoUsuario.type = 'user';
                 APICreaUsuario(nuevoUsuario);
                 return 1;
             }else
