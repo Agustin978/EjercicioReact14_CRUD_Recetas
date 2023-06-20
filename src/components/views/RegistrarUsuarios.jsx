@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { registraUsuario } from "../helpers/queries";
 import Swal from "sweetalert2";
 
-const RegistrarUsuarios = ({setUsuarioLogueado}) => {
+const RegistrarUsuarios = () => {
     const {register, handleSubmit, formState:{errors}, reset} = useForm();
     const navigate = useNavigate();
 
@@ -15,12 +15,15 @@ const RegistrarUsuarios = ({setUsuarioLogueado}) => {
                 if(respuesta === 1)
                 {
                     Swal.fire('El usuario se creo exitosamente', ':)', 'success');
+                    navigate('/');
                 }else if(respuesta)
                 {
                     Swal.fire('Error', respuesta, 'error');
                 }else
                 {
                     Swal.fire('Error', 'Hay inconvenientes para conectarse a la base de datos actualmente. Por favor, Intenta nuevamente mas tarde.', 'error');
+                    reset();
+                    navigate('/');
                 }
             });
     }
