@@ -169,3 +169,19 @@ export const ingresaComentario = async (comentario) =>
         return null;
     }
 }
+
+export const obtieneComentarios = async (id_receta) => 
+{
+    try {
+        const respuesta = await fetch(`${URL_comentarios}`);
+        const comentarios = await respuesta.json();
+        const comentariosReceta = comentarios.filter(
+            (comentario) => comentario.id_platillo === parseInt(id_receta)
+        );
+        //console.log(comentariosReceta);
+        return comentariosReceta;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
