@@ -13,14 +13,20 @@ const DejaComentario = ({receta, usuarioLogueado}) => {
         //console.log(usuarioLogueado);
         if(Object.keys(usuarioLogueado).length != 0)
         {
+            //console.log(usuarioLogueado);
             comentario.id_usuario = usuarioLogueado.id;
             comentario.id_platillo = receta.id;
-            console.log(comentario);
+            comentario.nombreUsuario = usuarioLogueado.nombreUsuario;
+            //console.log(comentario);
             ingresaComentario(comentario).then(respuesta => 
                 {
                     if(respuesta)
                     {
-                        Swal.fire()
+                        Swal.fire('Comentario agregado exitosamente!',':)','success');
+                        reset();
+                    }else
+                    {
+                        Swal.fire('Error', 'Hay inconvenientes para conectarse a la base de datos actualmente. Por favor, Intenta nuevamente mas tarde.', 'error');
                     }
                 })
         }else
