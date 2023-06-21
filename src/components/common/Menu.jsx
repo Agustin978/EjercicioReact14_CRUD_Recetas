@@ -1,19 +1,46 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
-import { Link, NavLink} from 'react-router-dom';
+import { Navbar, Container, Nav, Button } from "react-bootstrap";
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+
+const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
+  const navigate = useNavigate();
+  const logout = () => 
+  {
+    sessionStorage.removeItem('user');
+    setUsuarioLogueado({});
+    navigate('/');
+  }
 
 
-const Menu = () => {
   return (
-    <Navbar bg="danger" variant="dark" expand="lg">
+    <Navbar bg="info" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to={'/'}>Cafecito</Navbar.Brand>
+        <Navbar.Brand as={Link} to={'/'}>El rincón del sazón</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <NavLink end className='nav-item nav-link' to={'/'}>Inicio</NavLink>
-            <NavLink end className='nav-item nav-link' to={'/registro'}>Registro</NavLink>
-            <NavLink end className='nav-item nav-link' to={'/administrador'}>Administrador</NavLink>
-            <NavLink end className='nav-item nav-link' to={'/login'}>Login</NavLink>
+            <NavLink end className='nav-item nav-link' to={'*'}>Contacto</NavLink>
+            {
+              usuarioLogueado.type ?(
+                <>
+                  {usuarioLogueado.type === 'admin' ?(
+                    <>
+                      <NavLink end className='nav-item nav-link' to={'/administrador'}>Administrador</NavLink>
+                      <Button variant="dark" onClick={logout}>Logout</Button>
+                    </>
+                  ) : (
+                    <>
+                      <Button variant="dark" onClick={logout}>Logout</Button>
+                    </>
+                  )}
+                </>
+              ):(
+                <>
+                  <NavLink end className='nav-item nav-link' to={'/login'}>Login</NavLink>
+                  <NavLink end className='nav-item nav-link' to={'/registrarse'}>Registrarse</NavLink>
+                </>
+              )
+            }          
           </Nav>
         </Navbar.Collapse>
       </Container>
