@@ -51,5 +51,42 @@
       "type": "user",
       "id": 3
     }
+  ],
+  "comentarios": [
+    {
+      "id": 1,
+      "id_usuario": 2,
+      "id_platillo": 1,
+      "nombreUsuario": "alguien",
+      "comentario": "Muy buena receta. Es sencilla y y muy bien explicada."
+    },
+    {
+      "comentario": "Hola :)",
+      "nombreUsuario": "alguien",
+      "id_usuario": 2,
+      "id_platillo": 2,
+      "id": 2
+    },
+    {
+      "comentario": "Hola :))",
+      "nombreUsuario": "alguien",
+      "id_usuario": 2,
+      "id_platillo": 2,
+      "id": 3
+    },
+    {
+      "comentario": "Como les va?",
+      "id_usuario": 3,
+      "id_platillo": 1,
+      "nombreUsuario": "alguien2",
+      "id": 4
+    },
+    {
+      "comentario": "Wenas",
+      "id_usuario": 3,
+      "id_platillo": 1,
+      "nombreUsuario": "alguien2",
+      "id": 5
+    }
   ]
 }

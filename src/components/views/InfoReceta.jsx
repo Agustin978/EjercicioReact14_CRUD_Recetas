@@ -1,12 +1,14 @@
 import { Container, Card, Row, Col } from "react-bootstrap";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { useParams } from "react-router-dom";
 import { obtenerReceta } from "../helpers/queries";
+import DejaComentario from "./DejaComentario";
+import ComentariosReceta from "./ComentariosReceta";
 
-const InfoReceta = () => {
+const InfoReceta = ({usuarioLogueado}) => {
   const { id } = useParams();
   const [receta, setReceta] = useState(null);
 
@@ -43,6 +45,8 @@ const InfoReceta = () => {
           </Col>
         </Row>
       </Card>
+      <DejaComentario receta={receta} usuarioLogueado={usuarioLogueado}></DejaComentario>
+      <ComentariosReceta id_receta={id}></ComentariosReceta>
     </Container>
   );
 };

@@ -30,7 +30,7 @@ function App() {
           </RutasProtegidas>
         }></Route>
       
-        <Route path="/receta/:id" element={<InfoReceta />} />
+        <Route path="/receta/:id" element={<InfoReceta usuarioLogueado={usuarioLogueado}/>} />
         <Route exact path="/registrarse" element={<RegistrarUsuarios></RegistrarUsuarios>}></Route>
         <Route path="*" element={<Error404></Error404>}></Route>    
       </Routes>

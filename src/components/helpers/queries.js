@@ -1,12 +1,13 @@
 const URL_usuario = import.meta.env.VITE_API_USUARIO;
 const URL_receta = import.meta.env.VITE_API_RECETA;
+const URL_comentarios = import.meta.env.VITE_API_COMENTARIOS;
 
 export const login = async (usuario) => {
-    console.log(usuario);
+    //console.log(usuario);
     try {
         const respuesta = await fetch(URL_usuario);
         const listaUsuarios = await respuesta.json();
-        console.log(listaUsuarios);
+        //console.log(listaUsuarios);
         const usuarioBuscado = listaUsuarios.find((itemUsuario) => itemUsuario.email === usuario.email);
         if (usuarioBuscado) {
             //console.log('Email encontrado');
@@ -73,7 +74,7 @@ const APICreaUsuario = async (nuevoUsuario) =>
 {
     try
     {
-        console.log(nuevoUsuario);
+        //console.log(nuevoUsuario);
         const respuesta = await fetch(URL_usuario, {
             method:"POST",
             headers:{
@@ -147,5 +148,40 @@ export const APIEditarReceta = async (platillo, id) => {
     } catch (error) {
         console.log(error);
         return false;
+    }
+}
+
+export const ingresaComentario = async (comentario) =>
+{
+    try
+    {
+        const respuesta = await fetch(URL_comentarios, {
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify(comentario)
+        });
+        return respuesta;
+    }catch(error)
+    {
+        console.log('A ocurrido un error: ',error);
+        return null;
+    }
+}
+
+export const obtieneComentarios = async (id_receta) => 
+{
+    try {
+        const respuesta = await fetch(`${URL_comentarios}`);
+        const comentarios = await respuesta.json();
+        const comentariosReceta = comentarios.filter(
+            (comentario) => comentario.id_platillo === parseInt(id_receta)
+        );
+        //console.log(comentariosReceta);
+        return comentariosReceta;
+    } catch (error) {
+        console.log(error);
+        return null;
     }
 }
