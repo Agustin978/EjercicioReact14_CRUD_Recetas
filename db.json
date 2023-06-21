@@ -52,12 +52,27 @@
       "id": 3
     }
   ],
-  "comentarios":[
+  "comentarios": [
     {
-      "id":1,
-      "id_usuario":2,
-      "id_platillo":1,
-      "comentario":"Muy buena receta. Es sencilla y y muy bien explicada."
+      "id": 1,
+      "id_usuario": 2,
+      "id_platillo": 1,
+      "nombreUsuario": "alguien",
+      "comentario": "Muy buena receta. Es sencilla y y muy bien explicada."
+    },
+    {
+      "comentario": "Hola :)",
+      "nombreUsuario": "alguien",
+      "id_usuario": 2,
+      "id_platillo": 2,
+      "id": 2
+    },
+    {
+      "comentario": "Hola :))",
+      "nombreUsuario": "alguien",
+      "id_usuario": 2,
+      "id_platillo": 2,
+      "id": 3
     }
   ]
 }
