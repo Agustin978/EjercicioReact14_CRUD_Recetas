@@ -3,11 +3,11 @@ const URL_receta = import.meta.env.VITE_API_RECETA;
 const URL_comentarios = import.meta.env.VITE_API_COMENTARIOS;
 
 export const login = async (usuario) => {
-    console.log(usuario);
+    //console.log(usuario);
     try {
         const respuesta = await fetch(URL_usuario);
         const listaUsuarios = await respuesta.json();
-        console.log(listaUsuarios);
+        //console.log(listaUsuarios);
         const usuarioBuscado = listaUsuarios.find((itemUsuario) => itemUsuario.email === usuario.email);
         if (usuarioBuscado) {
             //console.log('Email encontrado');
@@ -74,7 +74,7 @@ const APICreaUsuario = async (nuevoUsuario) =>
 {
     try
     {
-        console.log(nuevoUsuario);
+        //console.log(nuevoUsuario);
         const respuesta = await fetch(URL_usuario, {
             method:"POST",
             headers:{

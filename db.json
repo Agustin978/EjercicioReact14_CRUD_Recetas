@@ -73,6 +73,20 @@
       "id_usuario": 2,
       "id_platillo": 2,
       "id": 3
+    },
+    {
+      "comentario": "Como les va?",
+      "id_usuario": 3,
+      "id_platillo": 1,
+      "nombreUsuario": "alguien2",
+      "id": 4
+    },
+    {
+      "comentario": "Wenas",
+      "id_usuario": 3,
+      "id_platillo": 1,
+      "nombreUsuario": "alguien2",
+      "id": 5
     }
   ]
 }
