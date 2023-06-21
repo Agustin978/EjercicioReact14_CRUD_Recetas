@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router-dom";
 import { obtenerReceta } from "../helpers/queries";
 import DejaComentario from "./DejaComentario";
+import ComentariosReceta from "./ComentariosReceta";
 
 const InfoReceta = ({usuarioLogueado}) => {
   const { id } = useParams();
@@ -44,8 +45,8 @@ const InfoReceta = ({usuarioLogueado}) => {
           </Col>
         </Row>
       </Card>
-      {/*Aqui debo colocar los comentarios*/}
       <DejaComentario receta={receta} usuarioLogueado={usuarioLogueado}></DejaComentario>
+      <ComentariosReceta id_receta={id}></ComentariosReceta>
     </Container>
   );
 };
