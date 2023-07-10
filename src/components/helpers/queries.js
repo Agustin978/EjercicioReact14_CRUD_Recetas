@@ -2,6 +2,33 @@ const URL_usuario = import.meta.env.VITE_API_USUARIO;
 const URL_receta = import.meta.env.VITE_API_RECETA;
 const URL_comentarios = import.meta.env.VITE_API_COMENTARIOS;
 
+
+export const login = async (usuario) => {
+    //console.log(usuario);
+    try {
+        const respuesta = await fetch(URL_usuario,{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(usuario),
+        });
+        const datos = await respuesta.json();
+        return {
+            status: respuesta.status,
+            mensaje: respuesta.mensaje,
+            usuario: datos.nombreUsuario,
+            uid: datos.uid,
+            type: datos.type
+        }
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
+
+/*
 export const login = async (usuario) => {
     //console.log(usuario);
     try {
@@ -26,7 +53,7 @@ export const login = async (usuario) => {
         console.log(error);
         return null;
     }
-}
+}*/
 
 export const registraUsuario = async (nuevoUsuario) => 
 {
