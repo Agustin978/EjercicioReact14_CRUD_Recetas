@@ -13,20 +13,21 @@ const Login = ({setUsuarioLogueado}) => {
         //Aqui debo realizar los controles para el ingreso del usuario logueado.
         login(usuario).then(respuesta => 
         {
-            if(respuesta && respuesta != 0)
+            if(respuesta.status === 200)
             {
                 //Si se loguea exitosamente
                 sessionStorage.setItem('user', JSON.stringify(respuesta));
                 setUsuarioLogueado(respuesta);
                 Swal.fire('Bienvenido', ':)', 'success');
                 navegacion('/administrador');
-            }else if(respuesta === 0)
-            {
-                Swal.fire('Error', 'Email o password incorrectos.', 'error');
             }else
             {
-                Swal.fire('Error', 'Hay inconvenientes para conectarse a la base de datos actualmente. Por favor, Intenta nuevamente mas tarde.', 'error');
+                Swal.fire('Error', 'Email o password incorrectos.', 'error');
             }
+            /*else
+            {
+                Swal.fire('Error', 'Hay inconvenientes para conectarse a la base de datos actualmente. Por favor, Intenta nuevamente mas tarde.', 'error');
+            }*/
         });
         reset();
     }
