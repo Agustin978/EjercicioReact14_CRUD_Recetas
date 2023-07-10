@@ -11,7 +11,7 @@ const CardReceta = ({ receta }) => {
         <Card.Body>
           <Card.Title>{receta.nombrePlatillo}</Card.Title>
           <Card.Text className="RecetaCard-desc">{receta.descripcion}</Card.Text>
-          <Link to={`/receta/${receta.id}`} className="btn btn-primary">Ver detalle</Link>
+          <Link to={`/receta/${receta._id}`} className="btn btn-primary">Ver detalle</Link>
         </Card.Body>
       </Card>
     </Col>

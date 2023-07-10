@@ -63,7 +63,7 @@ const Inicio = () => {
         <hr />
         <Row>
           {recetas.map((receta) => (
-            <CardReceta key={receta.id} receta={receta} />
+            <CardReceta key={receta._id} receta={receta} />
           ))}
         </Row>
       </Container>

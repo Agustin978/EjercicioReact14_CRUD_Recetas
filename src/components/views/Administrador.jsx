@@ -12,11 +12,11 @@ const Administrador = () => {
   useEffect(() => {
     obtenerRecetas()
       .then((respuesta) => {
-        console.log(respuesta);
+        //console.log(respuesta);
         setRecetas(respuesta);
       })
       .catch((error) => {
-        console.log(error);
+        //console.log(error);
         Swal.fire({
           icon: 'error',
           title: 'Error',
@@ -25,8 +25,8 @@ const Administrador = () => {
       });
   }, []);
 
-  const eliminarReceta = (id) => {
-    setRecetas(recetas.filter((platillo) => platillo.id !== id));
+  const eliminarReceta = (_id) => {
+    setRecetas(recetas.filter((platillo) => platillo._id !== _id));
   };
 
   return (
@@ -51,7 +51,7 @@ const Administrador = () => {
         </thead>
         <tbody>
           {recetas.map((platillo) => (
-            <ItemReceta key={platillo.id} platillo={platillo} eliminarReceta={eliminarReceta} />
+            <ItemReceta key={platillo._id} platillo={platillo} eliminarReceta={eliminarReceta} />
           ))}
         </tbody>
       </Table>

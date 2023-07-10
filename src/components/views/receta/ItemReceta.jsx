@@ -18,7 +18,7 @@ const ItemReceta = ({ platillo, eliminarReceta }) => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        APIBorrarReceta(platillo.id)
+        APIBorrarReceta(platillo._id)
           .then((respuesta) => {
             if (respuesta.status === 200) {
               Swal.fire(
@@ -26,7 +26,7 @@ const ItemReceta = ({ platillo, eliminarReceta }) => {
                 `El platillo ${platillo.nombrePlatillo} fue eliminado`,
                 'success'
               );
-              eliminarReceta(platillo.id);
+              eliminarReceta(platillo._id);
             } else {
               Swal.fire(
                 'Se produjo un error',
@@ -48,13 +48,13 @@ const ItemReceta = ({ platillo, eliminarReceta }) => {
 
   return (
     <tr>
-      <td>{platillo.id}</td>
+      <td>{platillo._id}</td>
       <td>{platillo.nombrePlatillo}</td>
       <td className="truncado">{platillo.descripcion}</td>
       <td className="truncado">{platillo.imagen}</td>
       <td>{platillo.categoria}</td>
       <td>
-        <Link className="btn btn-warning me-2" to={`/administrador/editar/${platillo.id}`}>
+        <Link className="btn btn-warning me-2" to={`/administrador/editar/${platillo._id}`}>
           Editar
         </Link>
         <Button variant="danger" onClick={borrarReceta}>

@@ -15,7 +15,7 @@ const DejaComentario = ({receta, usuarioLogueado}) => {
         {
             //console.log(usuarioLogueado);
             comentario.id_usuario = usuarioLogueado.id;
-            comentario.id_platillo = receta.id;
+            comentario.id_platillo = receta._id;
             comentario.nombreUsuario = usuarioLogueado.nombreUsuario;
             //console.log(comentario);
             ingresaComentario(comentario).then(respuesta => 
